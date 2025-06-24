@@ -1,13 +1,28 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import MainAppLayout from '../components/layout/MainAppLayout';
+import EmailList from '../components/EmailList/EmailList';
+import EmailContent from '../components/EmailContent/EmailContent';
 
-const Index = () => {
+/**
+ * The main page for the Email Client Dashboard, representing the "Email Client Overview".
+ *
+ * This page assembles the core components into the final user interface. It leverages
+ * the `MainAppLayout` to provide the consistent sidebar and header structure. The main
+ * content area is then composed of the `EmailList` and `EmailContent` components,
+ * creating the classic two-pane email view.
+ */
+const Index: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <MainAppLayout>
+      {/* 
+        The main content area is a flex container that fills the available height.
+        It arranges the EmailList and EmailContent side-by-side.
+      */}
+      <div className="flex h-full">
+        <EmailList />
+        <EmailContent />
       </div>
-    </div>
+    </MainAppLayout>
   );
 };
 
